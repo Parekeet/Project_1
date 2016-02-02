@@ -1,12 +1,30 @@
 console.log('hello');
 
+// var questionsAnswered = [
+//   [""],
+//   [""],
+//   [""],
+//   [""],
+//   [""],
+//   [""],
+//   [""]
+// ];
+
+
+//README page
+
+$('#start').on('click', function(evt) {
+    console.log(evt, this);
+        $('#wholeContainer').addClass('hidden');
+        $('#quizContainer').removeClass('hidden');
+  });
 
 //QUESTIONS, CHOICES, AND ANSWERS
 
 var questionNumber = [
   "Which is NOT a Girl Scout cookie?",
   "Who was the first president of the US?",
-  "Kylie Kardishian is currently dating  ____________.",
+  "Kylie Jenner is currently dating  ____________.",
   "Who discovered gravity?",
   "'Hey Ya' was a song by:",
   "What is a group of Crows called?",
@@ -61,61 +79,68 @@ var answers = [
   choices[6][1]
 ];
 
-//GETTING SOMETHING TO SHOW IN MY QUESTIONS BOX
+//DISPLAY QUESTION
 
 function displayQuestion(quest){
   var questionArea = $('#questions');
   questionArea.html(quest);
 }
 
-displayQuestion(questionNumber[0]);
+displayQuestion(questionNumber[2]);
 
 //CLICK EVENT FOR CHOICES
-$( "#a" ).click(function() {
+
+$( "#ch0" ).click(function() {
   alert( "This is choice A" );
 });
 
-$( "#b" ).click(function() {
+$( "#ch1" ).click(function() {
   alert( "This is choice B" );
 });
 
-$( "#c" ).click(function() {
+$( "#ch2" ).click(function() {
   alert( "This is choice C" );
 });
 
-$( "#d" ).click(function() {
+$( "#ch3" ).click(function() {
   alert( "This is choice D" );
 });
 
 
 //Display Choices
-//THIS IS SO WRONG
-function displayChoice (choices) {
-  {var choiceA = $('#a');
-  choiceA.html(choices);}
-  {var choiceB = $('#b');
-  choiceB.html(choices);}
-  {var choiceC = $('#c');
-  choiceC.html(choices);}
-  {var choiceD = $('#d');
-  choiceD.html(choices);}
+
+function displayChoice (q) {
+  for (var i = 0; i < 4; i += 1) {
+    console.log(choices[q][i])
+  $("#ch"+i).html(choices[q][i]);
+  };
 }
 
-displayChoice(choices[0][0]);
+displayChoice(2);
+
+
 
 //CHECK ANSWER
 
-// var playersChoice = "";
-// var i = 0;
-// function checkAnswer () {
-//   for (i=0; answer = questions.length; i++){
-//     if (playersChoice[i] && questions[i] === answers[i])
-//       i++;
-//   } else {
-//     alert("No date for you, boo-boo!");
+// function checkAnswer (){
+// for (var i = 0; i <= questionNumber.length; i+=1) {
+//  if (answer === "") {
+//     console.log("Pick an answer!")
+// } else if (questionNumber[i] === answer[i]) {
+//     console.log("Correct!");
 //     render();
+// } else {
+//     console.log("No date for you, boo-boo!");
+//     restartGame();
+//     }
 //   }
 // };
+
+// checkAnswer();
+
+// HOW DO I CONNECT THE CHOICE SELECTED WITH THE CORRECT ANSWER
+// HOW DO I TIE THAT INTO THE CHECKANSWER function
+// HOW DO I MAKE THE RENDER BUTTON SO THAT THE NEXT SCREEN SHOWS
 
 
 

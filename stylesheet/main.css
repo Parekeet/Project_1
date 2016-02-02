@@ -24,28 +24,28 @@ h1 {
   width: 50%;
 }
 
-#a {
+#ch0 {
   border-style: solid;
   padding: 10px;
   width: 65%;
   clear: both;
 }
 
-#b {
+#ch1 {
   border-style: solid;
   padding: 10px;
   width: 65%;
   clear: both;
 }
 
-#c {
+#ch2 {
   border-style: solid;
   padding: 10px;
   width: 65%;
   clear: both;
 }
 
-#d {
+#ch3 {
   border-style: solid;
   padding: 10px;
   width: 65%;
@@ -56,4 +56,23 @@ h1 {
   width: 35%;
  }
 
+.hidden {
+  display: none;
+}
+
+.column {
+  float: left;
+  width: 33%;
+  margin: 0px;
+  text-align: center;
+}
+
+#start {
+  clear: both;
+}
+
+body {
+  background-image: url("../assets/triviawall.jpg");
+  background-image: 75%;
+}
 

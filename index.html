@@ -6,22 +6,38 @@
   <link rel="stylesheet" href="stylesheet/main.css">
 </head>
 <body>
-  <div id="quizContainer">
-    <div id="questions"></div>
-    <div class="choices">
-      <form>
-        <div id="a"><input type=radio name="theChoices"></div><br>
-        <div id="b"><input type=radio name="theChoices"></div><br>
-        <div id="c"><input type=radio name="theChoices"></div><br>
-        <div id="d"><input type=radio name="theChoices"></div><br>
-      </form>
-    </div>
-    <div id="images">
-      <img src="http://pngimg.com/upload/pumpkin_PNG9366.png">
-    </div>
+  <div id="wholeContainer" class=''>
+    <h1>Take Me Home!</h1>
+      <div id="column1" class="column">
+         <h3>Objective</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti nostrum soluta, dolorum consequatur, saepe non quae minima earum. Sunt modi vel voluptatibus provident culpa eum, atque amet aliquid vitae, voluptatum.</p>
+      </div>
+      <div id="column2" class="column">
+        <h3>How to Play</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto minima alias recusandae amet temporibus voluptatibus error cupiditate, nulla suscipit, id explicabo molestias! Ullam incidunt quaerat, labore minima. Pariatur, animi, praesentium.</p>
+      </div>
+      <div id="column3" class="column">
+        <h3>How to Win</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum repudiandae sed reprehenderit iusto. Temporibus, eos incidunt. Maxime omnis, doloribus aspernatur assumenda, quidem commodi dolor adipisci nisi harum, incidunt illo, ipsum.</p>
+      </div>
+    <button id="start">Start Game</button>
   </div>
-  <button id="restart">Restart</button>
-  <button id="next">Next</button>
+      <div id="quizContainer" class='hidden'>
+        <div id="questions"></div>
+        <div class="choices">
+          <form>
+            <div id="ch0"><input type=radio name="theChoices" value="a"></div><br>
+            <div id="ch1"><input type=radio name="theChoices" value="b"></div><br>
+            <div id="ch2"><input type=radio name="theChoices" value="c"></div><br>
+            <div id="ch3"><input type=radio name="theChoices" value="d"></div><br>
+          </form>
+        </div>
+        <div id="images">
+          <img src="http://pngimg.com/upload/pumpkin_PNG9366.png">
+        </div>
+          <button id="restart">Restart</button>
+          <button id="next">Next</button>
+      </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="js/main.js"></script>
 </body>
