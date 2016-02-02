@@ -1,0 +1,59 @@
+h1 {
+  text-align: center;
+  margin-top: 100px;
+}
+
+#quizContainer {
+  border-style: solid;
+  padding: 15px;
+  padding-top: 50px;
+  height: 450px;
+  top: 50%;
+}
+
+#questions {
+  border-style: dashed;
+  padding: 20px;
+  text-align: center;
+}
+
+.choices {
+  border: 15px;
+  padding: 20px;
+  float: left;
+  width: 50%;
+}
+
+#a {
+  border-style: solid;
+  padding: 10px;
+  width: 65%;
+  clear: both;
+}
+
+#b {
+  border-style: solid;
+  padding: 10px;
+  width: 65%;
+  clear: both;
+}
+
+#c {
+  border-style: solid;
+  padding: 10px;
+  width: 65%;
+  clear: both;
+}
+
+#d {
+  border-style: solid;
+  padding: 10px;
+  width: 65%;
+  clear: both;
+}
+ .images {
+  float: right;
+  width: 35%;
+ }
+
+
