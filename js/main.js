@@ -18,15 +18,24 @@ var playersChoice = "";
 
 //QUESTIONS, CHOICES, AND ANSWERS
 
+var level = 1;
 var number = 0;
 var questions = [
   "Which is NOT a Girl Scout cookie?",
-  "Who was the first president of the US?",
+  "Which fruit is the state of Georgia famous for?",
   "Kylie Jenner is currently dating  ____________.",
-  "Who discovered gravity?",
+  "What is an infant whale called?",
   "'Hey Ya' was a song by:",
   "What is a group of Crows called?",
-  "What is the most common last name in the world?"
+  "Which song is by Wu Tang Clan?",
+  "What is not a popular dance move?",
+  "What color is Absinthe?",
+  "What is the world's longest river?",
+  "In a standard deck of cards, which king does NOT have a mustache?",
+  "Which state wasn't part of the original 13 colonies?",
+  "What does DNA stand for?",
+  "Who played Atticus Finch in 'To Kill a Mockingbird'?",
+  "What is 2 x 15 + 25 – 54 = ?"
 ];
 var choices = [
   [ "Savannah Smiles",
@@ -34,20 +43,20 @@ var choices = [
     "Thin Mints",
     "Samosas",
   ],
-  [ "George Bush",
-    "Washington Jacksons",
-    "George Washington",
-    "Abraham Washington"
+  [ "Orange",
+    "Apple",
+    "Peach",
+    "Cherry"
   ],
   [ "Future",
     "Tyga",
     "Wiz Khalifa",
     "Ray J"
   ],
-  [ "Albert Einstein",
-    "Phil",
-    "Newton",
-    "Bill Nye the Science Guy"
+  [ "Kit",
+    "Cria",
+    "Calf",
+    "Nymph"
   ],
   [ "OutKast",
     "Loners",
@@ -59,10 +68,50 @@ var choices = [
     "Gaggle",
     "Murder"
   ],
-  [ "Smith",
-    "Chen",
-    "Kim",
-    "Chang"
+  [ "Mo Money Mo Problems",
+    "C.R.E.A.M.",
+    "Dear Mama",
+    "Wind Beneath My Wings"
+  ],
+  [ "Dab",
+    "Dag Mannie",
+    "Nae-Nae",
+    "Cat Daddy"
+  ],
+  [ "Blue",
+    "Teal",
+    "Green",
+    "Yellow"
+  ],
+  [ "Yangtze",
+    "Nile",
+    "Amazon",
+    "Colorado"
+  ],
+  [ "Spades",
+    "Clubs",
+    "Diamonds",
+    "Hearts"
+  ],
+  [ "Louisiana",
+    "Georgia",
+    "New Jersey",
+    "Virginia"
+  ],
+  [ "Deoroxynucliec Acid",
+    "Deoxyribonucleic Acid",
+    "Dioxynuclear Acid",
+    "Dioxitoniclear Acid"
+  ],
+  [ "Marlon Brando",
+    "Gary Cooper",
+    "John Barrymore",
+    "Gregory Peck"
+  ],
+  [ "4",
+    "2",
+    "1",
+    "5"
   ]
 ];
 var answers = [
@@ -72,7 +121,15 @@ var answers = [
   2,
   0,
   3,
-  1
+  1,
+  1,
+  2,
+  2,
+  3,
+  0,
+  1,
+  3,
+  2
 ];
 
 //DISPLAY QUESTION
@@ -94,7 +151,25 @@ function render() {
   displayChoice();
 }
 
+//DISPLAY NEXT QUESTION
+
+// function nextQuestion() {
+//   if (number === 4) {
+//     level++;// increzse level
+//     // displahy panel
+//   } else {
+//     // say sorry and restart
+//   }
+//   number++;
+// }
+
 function nextQuestion() {
+  if (number === 4) {
+    level++;// increzse level
+    // displahy panel
+  } else {
+    // say sorry and restart
+  }
   number++;
 }
 
@@ -107,6 +182,7 @@ $( "#ch0" ).click(function() {
     console.log("Correct!");
   } else {
     console.log("Wrong!");
+    restartGame();
   }
 });
 
@@ -155,6 +231,26 @@ $('#start').on('click', function(evt) {
 });
 
 
+$('#restart').on('click', function(evt) {
+  console.log(evt, this);
+  $('#quizContainer').addClass('hidden');
+  $('#wholeContainer').removeClass('hidden');
+  render()
+  });
+
+
+function restartGame() {
+  $('#quizContainer').addClass('hidden');
+  $('#wholeContainer').removeClass('hidden');
+  render();
+  number=0;
+};
+
+function startGame() {
+  $('#wholeContainer').addClass('hidden');
+  $('#quizContainer').removeClass('hidden');
+  render();
+};
 
 
 
