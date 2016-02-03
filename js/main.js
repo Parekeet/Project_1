@@ -1,22 +1,11 @@
 console.log('hello');
 
-// var questionsAnswered = [
-//   [""],
-//   [""],
-//   [""],
-//   [""],
-//   [""],
-//   [""],
-//   [""]
-// ];
-
-var playersChoice = "";
-
 //README page
 
 
 
 //QUESTIONS, CHOICES, AND ANSWERS
+
 
 var level = 1;
 var number = 0;
@@ -134,6 +123,8 @@ var answers = [
 
 //DISPLAY QUESTION
 
+
+
 function displayQuestion(){
   var questionArea = $('#questions');
   questionArea.html(questions[number]);
@@ -151,37 +142,34 @@ function render() {
   displayChoice();
 }
 
+
+
 //DISPLAY NEXT QUESTION
 
-// function nextQuestion() {
-//   if (number === 4) {
-//     level++;// increzse level
-//     // displahy panel
-//   } else {
-//     // say sorry and restart
-//   }
-//   number++;
-// }
+
 
 function nextQuestion() {
-  if (number === 4) {
-    level++;// increzse level
-    // displahy panel
+  if ((questions[number]) > 4) {
+    level++; // increzse level
+    changeImage1(); // displahy panel
   } else {
     // say sorry and restart
   }
+  winGame();
   number++;
 }
 
 
 //CLICK EVENT FOR CHOICES
 
+
+
 $( "#ch0" ).click(function() {
   console.log( "This is choice 0" );
     if (answers[number] === 0) {
     console.log("Correct!");
   } else {
-    console.log("Wrong!");
+    alert("No money, no honey. Sorry boo-boo, try again!");
     restartGame();
   }
 });
@@ -191,7 +179,8 @@ $( "#ch1" ).click(function() {
     if (answers[number] === 1) {
     console.log("Correct!");
   } else {
-    console.log("Wrong!");
+    alert("No money, no honey. Sorry boo-boo, try again!");
+    restartGame();
   }
 });
 
@@ -200,7 +189,8 @@ $( "#ch2" ).click(function() {
     if (answers[number] === 2) {
     console.log("Correct!");
   } else {
-    console.log("Wrong!");
+    alert("No money, no honey. Sorry boo-boo, try again!");
+    restartGame();
   }
 });
 
@@ -209,18 +199,21 @@ $( "#ch3" ).click(function() {
   if (answers[number] === 3) {
     console.log("Correct!");
   } else {
-    console.log("Wrong!");
+    alert("No money, no honey. Sorry boo-boo, try again!");
+    restartGame();
   }
 });
 
 
-//Display Choices
+
+//NEXT, RESTART, AND START BUTTON
+
+
 
 $('#next').on('click', function(evt){
   nextQuestion();
   render();
 })
-
 
 
 $('#start').on('click', function(evt) {
@@ -239,6 +232,10 @@ $('#restart').on('click', function(evt) {
   });
 
 
+
+//RESTART AND START AS FUNCTION FOR WRONG ANSWERS
+
+
 function restartGame() {
   $('#quizContainer').addClass('hidden');
   $('#wholeContainer').removeClass('hidden');
@@ -252,11 +249,30 @@ function startGame() {
   render();
 };
 
+//CHANGING IMAGES FOR EACH LEVEL UP
 
 
-// HOW DO I CONNECT THE CHOICE SELECTED WITH THE CORRECT ANSWER
-// HOW DO I TIE THAT INTO THE CHECKANSWER function
-// HOW DO I MAKE THE RENDER BUTTON SO THAT THE NEXT SCREEN SHOWS
+function changeImage1() {
+  var image = document.getElementById('images1');
+  if (question[number] > 4) {
+    image.src = "assets/eggplant.png";
+  }
+};
+
+
+//WIN GAME
+
+function winGame() {
+  if (number === 14){
+    alert('Congratulations! You win a date with the lovely Ms. B!');
+    restartGame();
+  }
+};
+
+
+//HOW DO I CHANGE BETWEEN IMAGES
+//HOW DO I ADD TIMER
+//HOW DO I ADD MUSIC
 
 
 
