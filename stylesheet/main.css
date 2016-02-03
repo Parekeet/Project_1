@@ -1,20 +1,23 @@
 h1 {
   text-align: center;
   margin-top: 100px;
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
 }
 
 #quizContainer {
-  border-style: solid;
+  border-style: none;
   padding: 15px;
-  padding-top: 50px;
-  height: 450px;
-  top: 50%;
+  padding-top: 35px;
+  height: 550px;
 }
 
 #questions {
   border-style: dashed;
   padding: 20px;
   text-align: center;
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .choices {
@@ -22,34 +25,44 @@ h1 {
   padding: 20px;
   float: left;
   width: 50%;
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  padding-top: 10%;
 }
 
 #ch0 {
-  border-style: solid;
+  border-style: none;
   padding: 10px;
   width: 65%;
   clear: both;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 #ch1 {
-  border-style: solid;
+  border-style: none;
   padding: 10px;
   width: 65%;
   clear: both;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 #ch2 {
-  border-style: solid;
+  border-style: none;
   padding: 10px;
   width: 65%;
   clear: both;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 #ch3 {
-  border-style: solid;
+  border-style: none;
   padding: 10px;
   width: 65%;
   clear: both;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
  .images {
   float: right;
@@ -63,8 +76,8 @@ h1 {
 .column {
   float: left;
   width: 33%;
-  margin: 0px;
   text-align: center;
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
 }
 
 #start {
@@ -73,6 +86,14 @@ h1 {
 
 body {
   background-image: url("../assets/triviawall.jpg");
-  background-image: 75%;
+  background-size: cover;
 }
+
+#wholeContainer {
+  padding: 30px;
+}
+
+
+
+
 

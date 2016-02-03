@@ -10,18 +10,16 @@ console.log('hello');
 //   [""]
 // ];
 
+var playersChoice = "";
 
 //README page
 
-$('#start').on('click', function(evt) {
-    console.log(evt, this);
-        $('#wholeContainer').addClass('hidden');
-        $('#quizContainer').removeClass('hidden');
-  });
+
 
 //QUESTIONS, CHOICES, AND ANSWERS
 
-var questionNumber = [
+var number = 0;
+var questions = [
   "Which is NOT a Girl Scout cookie?",
   "Who was the first president of the US?",
   "Kylie Jenner is currently dating  ____________.",
@@ -30,7 +28,6 @@ var questionNumber = [
   "What is a group of Crows called?",
   "What is the most common last name in the world?"
 ];
-
 var choices = [
   [ "Savannah Smiles",
     "Tagalongs",
@@ -68,75 +65,98 @@ var choices = [
     "Chang"
   ]
 ];
-
 var answers = [
-  choices[0][3],
-  choices[1][2],
-  choices[2][1],
-  choices[3][2],
-  choices[4][0],
-  choices[5][3],
-  choices[6][1]
+  3,
+  2,
+  1,
+  2,
+  0,
+  3,
+  1
 ];
 
 //DISPLAY QUESTION
 
-function displayQuestion(quest){
+function displayQuestion(){
   var questionArea = $('#questions');
-  questionArea.html(quest);
+  questionArea.html(questions[number]);
 }
 
-displayQuestion(questionNumber[2]);
+function displayChoice() {
+  for (var i = 0; i < 4; i += 1) {
+    console.log(choices[number][i])
+    $("#ch"+i).html(choices[number][i]);
+  };
+}
+
+function render() {
+  displayQuestion();
+  displayChoice();
+}
+
+function nextQuestion() {
+  number++;
+}
+
 
 //CLICK EVENT FOR CHOICES
 
 $( "#ch0" ).click(function() {
-  alert( "This is choice A" );
+  console.log( "This is choice 0" );
+    if (answers[number] === 0) {
+    console.log("Correct!");
+  } else {
+    console.log("Wrong!");
+  }
 });
 
 $( "#ch1" ).click(function() {
-  alert( "This is choice B" );
+  console.log( "This is choice 1" );
+    if (answers[number] === 1) {
+    console.log("Correct!");
+  } else {
+    console.log("Wrong!");
+  }
 });
 
 $( "#ch2" ).click(function() {
-  alert( "This is choice C" );
+  console.log( "This is choice 2" );
+    if (answers[number] === 2) {
+    console.log("Correct!");
+  } else {
+    console.log("Wrong!");
+  }
 });
 
 $( "#ch3" ).click(function() {
-  alert( "This is choice D" );
+  console.log( "This is choice 3" );
+  if (answers[number] === 3) {
+    console.log("Correct!");
+  } else {
+    console.log("Wrong!");
+  }
 });
 
 
 //Display Choices
 
-function displayChoice (q) {
-  for (var i = 0; i < 4; i += 1) {
-    console.log(choices[q][i])
-  $("#ch"+i).html(choices[q][i]);
-  };
-}
-
-displayChoice(2);
+$('#next').on('click', function(evt){
+  nextQuestion();
+  render();
+})
 
 
 
-//CHECK ANSWER
+$('#start').on('click', function(evt) {
+  console.log(evt, this);
+  $('#wholeContainer').addClass('hidden');
+  $('#quizContainer').removeClass('hidden');
+  render()
+});
 
-// function checkAnswer (){
-// for (var i = 0; i <= questionNumber.length; i+=1) {
-//  if (answer === "") {
-//     console.log("Pick an answer!")
-// } else if (questionNumber[i] === answer[i]) {
-//     console.log("Correct!");
-//     render();
-// } else {
-//     console.log("No date for you, boo-boo!");
-//     restartGame();
-//     }
-//   }
-// };
 
-// checkAnswer();
+
+
 
 // HOW DO I CONNECT THE CHOICE SELECTED WITH THE CORRECT ANSWER
 // HOW DO I TIE THAT INTO THE CHECKANSWER function
