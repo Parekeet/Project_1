@@ -154,7 +154,9 @@ function render() {
 
 function nextQuestion() {
   winGame();
-  number++;
+  if (number < 15) {
+   number++;
+  }
 }
 
 
@@ -220,6 +222,8 @@ function restartGame() {
   $('#wholeContainer').removeClass('hidden');
 };
 
+var wooHoo = new Audio('./assets/intro.aiff')
+
 function startGame() {
   level = 1;
   number = 0;
@@ -227,14 +231,15 @@ function startGame() {
   $('#wholeContainer').addClass('hidden');
   $('#quizContainer').removeClass('hidden');
   render();
-  // counter = setInterval(timer, 1000);
+  counter = setInterval(timer, 1000);
 };
+
 
 //CHANGING IMAGES FOR EACH LEVEL UP
 
 
 function revealImage() {
-  $('#images2').css('visibility', (number > 4) ? 'visible' : 'hidden');
+  $('#images2').css('visibility', (number > 4) ? 'visible' : 'hidden'); //IF number is greater than 4, make image
   $('#images3').css('visibility', (number > 9) ? 'visible' : 'hidden');
   $('#images4').css('visibility', (number > 14) ? 'visible' : 'hidden');
 };
@@ -245,10 +250,10 @@ function revealImage() {
 function winGame() {
   if (number === 14){
     number++;
+    alert("Congratulations! You win a date with the lovely Ms. Buscemi!");
     revealImage();
     clearInterval(counter);
     setTimeout(function() {
-      alert('Congratulations! You win a date with the lovely Ms. B!');
       restartGame();
     }, 2000);
   }
@@ -271,7 +276,4 @@ function timer()
 
 
 
-//HOW DO I CHANGE BETWEEN IMAGES
-//HOW DO I ADD TIMER
-//HOW DO I ADD MUSIC
-//GETTING PICTURE TO STAY... POSITION: ABSOLUTE? IS THIS OK?
+
