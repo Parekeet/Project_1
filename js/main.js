@@ -227,7 +227,7 @@ function startGame() {
   $('#wholeContainer').addClass('hidden');
   $('#quizContainer').removeClass('hidden');
   render();
-  counter = setInterval(timer, 1000);
+  // counter = setInterval(timer, 1000);
 };
 
 //CHANGING IMAGES FOR EACH LEVEL UP

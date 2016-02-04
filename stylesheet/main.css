@@ -12,7 +12,7 @@ h1 {
 }
 
 #questions {
-  border-style: dashed;
+  border-style: none;
   padding: 20px;
   text-align: center;
   font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
@@ -103,7 +103,13 @@ body {
   padding-top: 25px;
 }
 
+.timer {
+  font-family: 'digital-clock-font;
+}
 
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('digital-7 (mono).ttf');
 
 
 
