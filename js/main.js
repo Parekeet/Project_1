@@ -143,7 +143,7 @@ function displayChoice() {
 function render() {
   displayQuestion();
   displayChoice();
-  revealImage(); // displahy panel
+  revealImage(); // reveal the sexy lady
 }
 
 
@@ -223,7 +223,7 @@ function restartGame() {
 function startGame() {
   level = 1;
   number = 0;
-  count = 50;
+  count = 60;
   $('#wholeContainer').addClass('hidden');
   $('#quizContainer').removeClass('hidden');
   render();
@@ -250,7 +250,7 @@ function winGame() {
     setTimeout(function() {
       alert('Congratulations! You win a date with the lovely Ms. B!');
       restartGame();
-    }, 3000);
+    }, 2000);
   }
 };
 
