@@ -7,8 +7,11 @@ console.log('hello');
 //QUESTIONS, CHOICES, AND ANSWERS
 
 
-var level = 1;
-var number = 0;
+var level;
+var number;
+var count;
+var counter;
+
 var questions = [
   "Which is NOT a Girl Scout cookie?",
   "Which fruit is the state of Georgia famous for?",
@@ -140,6 +143,7 @@ function displayChoice() {
 function render() {
   displayQuestion();
   displayChoice();
+  revealImage(); // displahy panel
 }
 
 
@@ -149,12 +153,6 @@ function render() {
 
 
 function nextQuestion() {
-  if ((questions[number]) > 4) {
-    level++; // increzse level
-    changeImage1(); // displahy panel
-  } else {
-    // say sorry and restart
-  }
   winGame();
   number++;
 }
@@ -163,65 +161,45 @@ function nextQuestion() {
 //CLICK EVENT FOR CHOICES
 
 
-
-$( "#ch0" ).click(function() {
-  console.log( "This is choice 0" );
-    if (answers[number] === 0) {
+function checkAnswer(choice) {
+  console.log( "This is choice: " + choice );
+  if (answers[number] === choice) {
     console.log("Correct!");
+    goNextQuestion();
   } else {
     alert("No money, no honey. Sorry boo-boo, try again!");
     restartGame();
   }
+}
+
+$( "#ch0" ).click(function() {
+  checkAnswer(0);
 });
 
 $( "#ch1" ).click(function() {
-  console.log( "This is choice 1" );
-    if (answers[number] === 1) {
-    console.log("Correct!");
-  } else {
-    alert("No money, no honey. Sorry boo-boo, try again!");
-    restartGame();
-  }
+  checkAnswer(1);
 });
 
 $( "#ch2" ).click(function() {
-  console.log( "This is choice 2" );
-    if (answers[number] === 2) {
-    console.log("Correct!");
-  } else {
-    alert("No money, no honey. Sorry boo-boo, try again!");
-    restartGame();
-  }
+  checkAnswer(2);
 });
 
 $( "#ch3" ).click(function() {
-  console.log( "This is choice 3" );
-  if (answers[number] === 3) {
-    console.log("Correct!");
-  } else {
-    alert("No money, no honey. Sorry boo-boo, try again!");
-    restartGame();
-  }
+  checkAnswer(3);
 });
-
 
 
 //NEXT, RESTART, AND START BUTTON
 
 
 
-$('#next').on('click', function(evt){
+function goNextQuestion() {
   nextQuestion();
   render();
-})
+}
 
 
-$('#start').on('click', function(evt) {
-  console.log(evt, this);
-  $('#wholeContainer').addClass('hidden');
-  $('#quizContainer').removeClass('hidden');
-  render()
-});
+$('#start').on('click', startGame);
 
 
 $('#restart').on('click', function(evt) {
@@ -229,7 +207,7 @@ $('#restart').on('click', function(evt) {
   $('#quizContainer').addClass('hidden');
   $('#wholeContainer').removeClass('hidden');
   render()
-  });
+});
 
 
 
@@ -237,26 +215,28 @@ $('#restart').on('click', function(evt) {
 
 
 function restartGame() {
+  clearInterval(counter);
   $('#quizContainer').addClass('hidden');
   $('#wholeContainer').removeClass('hidden');
-  render();
-  number=0;
 };
 
 function startGame() {
+  level = 1;
+  number = 0;
+  count = 50;
   $('#wholeContainer').addClass('hidden');
   $('#quizContainer').removeClass('hidden');
   render();
+  counter = setInterval(timer, 1000);
 };
 
 //CHANGING IMAGES FOR EACH LEVEL UP
 
 
-function changeImage1() {
-  var image = document.getElementById('images1');
-  if (question[number] > 4) {
-    image.src = "assets/eggplant.png";
-  }
+function revealImage() {
+  $('#images2').css('visibility', (number > 4) ? 'visible' : 'hidden');
+  $('#images3').css('visibility', (number > 9) ? 'visible' : 'hidden');
+  $('#images4').css('visibility', (number > 14) ? 'visible' : 'hidden');
 };
 
 
@@ -264,18 +244,34 @@ function changeImage1() {
 
 function winGame() {
   if (number === 14){
-    alert('Congratulations! You win a date with the lovely Ms. B!');
-    restartGame();
+    number++;
+    revealImage();
+    clearInterval(counter);
+    setTimeout(function() {
+      alert('Congratulations! You win a date with the lovely Ms. B!');
+      restartGame();
+    }, 3000);
   }
 };
+
+
+//ADDING TIMER
+
+function timer()
+{
+  count=count-1;
+  if (count <= 0 && number != 14) {
+    clearInterval(counter);
+    alert("You snooze, you lose! Try again.")
+    restartGame();
+  }
+
+  document.getElementById("timer").innerHTML=count + " secs"; // watch for spelling
+}
+
 
 
 //HOW DO I CHANGE BETWEEN IMAGES
 //HOW DO I ADD TIMER
 //HOW DO I ADD MUSIC
-
-
-
-
-
-
+//GETTING PICTURE TO STAY... POSITION: ABSOLUTE? IS THIS OK?
