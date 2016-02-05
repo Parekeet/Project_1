@@ -16,6 +16,7 @@ var boo = new Audio('./assets/dating_boo.mp3')
 var dating_shortomg = new Audio('./assets/dating_shortomg.mp3')
 
 
+
 var questions = [
   "1. Which is NOT a Girl Scout cookie?",
   "2. Which fruit is the state of Georgia famous for?",
@@ -131,6 +132,53 @@ var answers = [
 ];
 
 
+//NEXT, RESTART, AND START BUTTON
+
+
+
+function goNextQuestion() {
+  nextQuestion();
+  render();
+}
+
+
+$('#start').on('click', startGame);
+
+
+$('#restart').on('click', function(evt) {
+  console.log(evt, this);
+  $('#quizContainer').addClass('hidden');
+  $('#wholeContainer').removeClass('hidden');
+  render()
+});
+
+
+
+//RESTART AND START AS FUNCTION FOR WRONG ANSWERS
+
+
+function restartGame() {
+  clearInterval(counter);
+  $('#quizContainer').addClass('hidden');
+  $('#wholeContainer').removeClass('hidden');
+  introSong.pause();
+};
+
+
+function startGame() {
+  level = 1;
+  number = 0;
+  count = 60;
+  $('#wholeContainer').addClass('hidden');
+  $('#quizContainer').removeClass('hidden');
+  render();
+  introSong.play();
+  introSong.loop = true;
+  counter = setInterval(timer, 1000);
+};
+
+
+
 //DISPLAY QUESTION
 
 
@@ -201,49 +249,6 @@ $( "#ch3" ).click(function() {
 });
 
 
-//NEXT, RESTART, AND START BUTTON
-
-
-
-function goNextQuestion() {
-  nextQuestion();
-  render();
-}
-
-
-$('#start').on('click', startGame);
-
-
-$('#restart').on('click', function(evt) {
-  console.log(evt, this);
-  $('#quizContainer').addClass('hidden');
-  $('#wholeContainer').removeClass('hidden');
-  render()
-});
-
-
-
-//RESTART AND START AS FUNCTION FOR WRONG ANSWERS
-
-
-function restartGame() {
-  clearInterval(counter);
-  $('#quizContainer').addClass('hidden');
-  $('#wholeContainer').removeClass('hidden');
-  introSong.pause();
-};
-
-
-function startGame() {
-  level = 1;
-  number = 0;
-  count = 60;
-  $('#wholeContainer').addClass('hidden');
-  $('#quizContainer').removeClass('hidden');
-  render();
-  introSong.play();
-  counter = setInterval(timer, 1000);
-};
 
 
 //CHANGING IMAGES FOR EACH LEVEL UP
