@@ -11,23 +11,27 @@ var level;
 var number;
 var count;
 var counter;
+var introSong = new Audio('./assets/dating_intro.mp3')
+var boo = new Audio('./assets/dating_boo.mp3')
+var dating_shortomg = new Audio('./assets/dating_shortomg.mp3')
+
 
 var questions = [
-  "Which is NOT a Girl Scout cookie?",
-  "Which fruit is the state of Georgia famous for?",
-  "Kylie Jenner is currently dating  ____________.",
-  "What is an infant whale called?",
-  "'Hey Ya' was a song by:",
-  "What is a group of Crows called?",
-  "Which song is by Wu Tang Clan?",
-  "What is not a popular dance move?",
-  "What color is Absinthe?",
-  "What is the world's longest river?",
-  "In a standard deck of cards, which king does NOT have a mustache?",
-  "Which state wasn't part of the original 13 colonies?",
-  "What does DNA stand for?",
-  "Who played Atticus Finch in 'To Kill a Mockingbird'?",
-  "What is 2 x 15 + 25 – 54 = ?"
+  "1. Which is NOT a Girl Scout cookie?",
+  "2. Which fruit is the state of Georgia famous for?",
+  "3. Kylie Jenner is currently dating  ________.",
+  "4. What is an infant whale called?",
+  "5. 'Hey Ya' was a song by:",
+  "6. What is a group of Crows called?",
+  "7. Which song is by Wu Tang Clan?",
+  "8. What is not a popular dance move?",
+  "9. What color is Absinthe?",
+  "10. What is the world's longest river?",
+  "11. In a standard deck of cards, which king doesn't have a mustache?",
+  "12. Which state wasn't part of the original 13 colonies?",
+  "13. What does DNA stand for?",
+  "14. Who played Atticus Finch in 'To Kill a Mockingbird'?",
+  "15. What is 2 x 15 + 25 – 54 = ?"
 ];
 var choices = [
   [ "Savannah Smiles",
@@ -169,7 +173,10 @@ function checkAnswer(choice) {
     console.log("Correct!");
     goNextQuestion();
   } else {
+    introSong.pause();
+    boo.play();
     alert("No money, no honey. Sorry boo-boo, try again!");
+    boo.pause();
     restartGame();
   }
 }
@@ -230,6 +237,7 @@ function startGame() {
   count = 60;
   $('#wholeContainer').addClass('hidden');
   $('#quizContainer').removeClass('hidden');
+  introSong.play();
   render();
   counter = setInterval(timer, 1000);
 };
@@ -250,8 +258,11 @@ function revealImage() {
 function winGame() {
   if (number === 14){
     number++;
-    alert("Congratulations! You win a date with the lovely Ms. Buscemi!");
+    introSong.pause();
+    dating_shortomg.play();
+    dating_shortomg.pause();
     revealImage();
+    alert("Congratulations! You win a date with the lovely Ms. Buscemi!");
     clearInterval(counter);
     setTimeout(function() {
       restartGame();

@@ -12,16 +12,14 @@ h1 {
 }
 
 #questions {
-/*  border-width:5px;
-  border-style:outset;*/
   background-image: url('../assets/marquee.gif');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: stretch;
+  background-size: 600px 70px;
   padding: 20px;
   text-align: center;
   font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
 }
 
@@ -92,6 +90,8 @@ h1 {
 body {
   background-image: url("../assets/triviawall.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  position: contain;
 }
 
 #wholeContainer {
