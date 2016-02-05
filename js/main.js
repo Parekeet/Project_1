@@ -10,7 +10,7 @@ console.log('hello');
 var level;
 var number;
 var count;
-var counter;
+var timerId;
 var introSong = new Audio('./assets/dating_intro.mp3')
 var boo = new Audio('./assets/dating_boo.mp3')
 var dating_shortomg = new Audio('./assets/dating_shortomg.mp3')
@@ -158,7 +158,7 @@ $('#restart').on('click', function(evt) {
 
 
 function restartGame() {
-  clearInterval(counter);
+  clearInterval(timerId);
   $('#quizContainer').addClass('hidden');
   $('#wholeContainer').removeClass('hidden');
   introSong.pause();
@@ -174,7 +174,7 @@ function startGame() {
   render();
   introSong.play();
   introSong.loop = true;
-  counter = setInterval(timer, 1000);
+  timerId = setInterval(tick, 1000);
 };
 
 
@@ -270,7 +270,7 @@ function winGame() {
     dating_shortomg.play();
     revealImage();
     alert("Congratulations! You win a date with the lovely Ms. Buscemi!");
-    clearInterval(counter);
+    clearInterval(timerId);
     setTimeout(function() {
     dating_shortomg.pause();
       restartGame();
@@ -279,13 +279,13 @@ function winGame() {
 };
 
 
-//ADDING TIMER
+//TIMER CALLBACK FUNCTION
 
-function timer()
+function tick()
 {
-  count=count-1;
+  count--;
   if (count <= 0 && number != 14) {
-    clearInterval(counter);
+    clearInterval(timerId);
     alert("You snooze, you lose! Try again.")
     restartGame();
   }
