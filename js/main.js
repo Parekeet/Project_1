@@ -21,18 +21,19 @@ var questions = [
   "2. Which fruit is the state of Georgia famous for?",
   "3. Kylie Jenner is currently dating  ________.",
   "4. What is an infant whale called?",
-  "5. 'Hey Ya' was a song by:",
+  "5. She was looking kinda __ with her __ and __?",
   "6. What is a group of Crows called?",
   "7. Which song is by Wu Tang Clan?",
   "8. What is not a popular dance move?",
-  "9. What color is Absinthe?",
+  "9. How old is the sun?",
   "10. What is the world's longest river?",
-  "11. In a standard deck of cards, which king doesn't have a mustache?",
+  "11. The King of Hearts does NOT have:________",
   "12. Which state wasn't part of the original 13 colonies?",
   "13. What does DNA stand for?",
   "14. Who played Atticus Finch in 'To Kill a Mockingbird'?",
   "15. What is 2 x 15 + 25 – 54 = ?"
 ];
+
 var choices = [
   [ "Savannah Smiles",
     "Tagalongs",
@@ -54,10 +55,10 @@ var choices = [
     "Calf",
     "Nymph"
   ],
-  [ "OutKast",
-    "Loners",
-    "The Ostracized",
-    "Beyonce"
+  [ "dumb:finger:thumb",
+    "cute:hair:pumps",
+    "dumb:lapdog:gum",
+    "sweet:cookies:treats"
   ],
   [ "Flock",
     "Swarm",
@@ -74,20 +75,20 @@ var choices = [
     "Nae-Nae",
     "Cat Daddy"
   ],
-  [ "Blue",
-    "Teal",
-    "Green",
-    "Yellow"
+  [ "4 Billion y.o.",
+    "5 Billion y.o.",
+    "4.5 Billion y.o.",
+    "100 Million y.o."
   ],
   [ "Yangtze",
     "Nile",
     "Amazon",
     "Colorado"
   ],
-  [ "Spades",
-    "Clubs",
-    "Diamonds",
-    "Hearts"
+  [ "His Hands Showing",
+    "A Crown",
+    "A Sword",
+    "A Mustache"
   ],
   [ "Louisiana",
     "Georgia",
@@ -110,6 +111,7 @@ var choices = [
     "5"
   ]
 ];
+
 var answers = [
   3,
   2,
@@ -127,6 +129,7 @@ var answers = [
   3,
   2
 ];
+
 
 //DISPLAY QUESTION
 
@@ -227,9 +230,9 @@ function restartGame() {
   clearInterval(counter);
   $('#quizContainer').addClass('hidden');
   $('#wholeContainer').removeClass('hidden');
+  introSong.pause();
 };
 
-var wooHoo = new Audio('./assets/intro.aiff')
 
 function startGame() {
   level = 1;
@@ -237,8 +240,8 @@ function startGame() {
   count = 60;
   $('#wholeContainer').addClass('hidden');
   $('#quizContainer').removeClass('hidden');
-  introSong.play();
   render();
+  introSong.play();
   counter = setInterval(timer, 1000);
 };
 
@@ -260,13 +263,13 @@ function winGame() {
     number++;
     introSong.pause();
     dating_shortomg.play();
-    dating_shortomg.pause();
     revealImage();
     alert("Congratulations! You win a date with the lovely Ms. Buscemi!");
     clearInterval(counter);
     setTimeout(function() {
+    dating_shortomg.pause();
       restartGame();
-    }, 2000);
+    }, 4000);
   }
 };
 
